@@ -56,4 +56,5 @@ var getIndexBelowMaxForKey = function(str, max) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ *getIndexBelowMaxForKey is linear time, checkLimit is constant, limitedArray get and set are constant and each is linear.
  */
