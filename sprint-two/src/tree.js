@@ -20,7 +20,7 @@ treeMethods.addChild = function(value) {
 //2. has children
 
 treeMethods.contains = function(target) {
-  console.log(this);
+
   // base case:
   if (this.value === target) {
     return true;
