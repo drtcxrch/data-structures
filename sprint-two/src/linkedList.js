@@ -28,7 +28,7 @@ var LinkedList = function () {
     3. List with more than item.
   */
   list.contains = function (target, node) { //passes tests, but not sure if it's actually correct as it doesn't acount for the values that I visually expect to be between head and tail.
-    console.log(this);
+
     if (node === undefined) { // case where function is called with target only.
       node = this.head;
     }
