@@ -58,7 +58,7 @@ describe('graph', function() {
     var connectToFive = function(item) {
       graph.addEdge(item, 5);
     };
-    graph.addNode(5);
+    graph.addNode(5); 
     graph.addNode(2);
     graph.addNode(1);
     graph.addNode(3);
