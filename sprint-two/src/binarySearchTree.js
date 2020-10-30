@@ -64,7 +64,7 @@ binaryTreeMethods.depthFirstLog = function (cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
- * insert is linear if everything goes on one side. if random then it's *logarithimic.
+ * all are linear if everything goes on one side. if random then it's logarithimic.
  */
 
 var binarySearchTree = BinarySearchTree(Math.random());
