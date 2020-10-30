@@ -41,4 +41,12 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should return false when a child value isn\'t present', function () {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    expect(tree.contains(7)).to.equal(true);
+    expect(tree.contains(9)).to.equal(false);
+  });
 });

@@ -12,17 +12,20 @@ var BinarySearchTree = function (value) {
 
 var binaryTreeMethods = {};
 
-binaryTreeMethods.insert = function (value) {
-  ++count;
+binaryTreeMethods.insert = function (value, count) {
+  if (count) {
+    counter++;
+  }
+
   if (value > this.value) {
     if (this.right) {
-      this.right.insert(value);
+      this.right.insert(value, count);
     } else {
       this.right = BinarySearchTree(value);
     }
   } else {
     if (this.left) {
-      this.left.insert(value);
+      this.left.insert(value, count);
     } else {
       this.left = BinarySearchTree(value);
     }
@@ -50,6 +53,7 @@ binaryTreeMethods.contains = function (target) {
 //
 binaryTreeMethods.depthFirstLog = function (cb) {
   cb(this.value);
+
   // now handle left and right.
   if (this.left) {
     this.left.depthFirstLog(cb);
@@ -58,6 +62,7 @@ binaryTreeMethods.depthFirstLog = function (cb) {
   if (this.right) {
     this.right.depthFirstLog(cb);
   }
+
 };
 
 
@@ -66,22 +71,3 @@ binaryTreeMethods.depthFirstLog = function (cb) {
  * Complexity: What is the time complexity of the above functions?
  * all are linear if everything goes on one side. if random then it's logarithimic.
  */
-
-var binarySearchTree = BinarySearchTree(Math.random());
-for (var i = 1; i < 10000; i++) {
-  var count = 0;
-  binarySearchTree.insert(Math.random());
-  if (i % 100 === 0) {
-    console.log(`RANDOM. size: ${i} count: ${count} ratio to log : ${count / Math.log(i)}`);
-  }
-}
-
-binarySearchTree = BinarySearchTree(2);
-for (var i = 1; i < 10000; i++) {
-  var count = 0;
-  binarySearchTree.insert(2);
-  if (i % 100 === 0) {
-    console.log(`2 ONLY. size: ${i} count: ${count}`);
-  }
-}
-

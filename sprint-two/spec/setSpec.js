@@ -26,4 +26,24 @@ describe('set', function() {
     expect(set.contains('hello world')).to.equal(true);
   });
 
+  it('should do nothing if I try to remove a value that is not present', function() {
+    set.add('Mel Gibson');
+    set.add('hello world');
+    set.remove('goodbye australia');
+    expect(set.contains('Mel Gibson')).to.equal(true);
+    expect(set.contains('hello world')).to.equal(true);
+    // storage size should be 2.
+    expect(Object.keys(set._storage).length === 2);
+  });
+
+  it('should do nothing if I try to add a value that is already present', function() {
+    set.add('Mel Gibson');
+    set.add('Mel Gibson');
+    set.remove('goodbye australia');
+    expect(set.contains('Mel Gibson')).to.equal(true);
+    expect(set.contains('hello world')).to.equal(false);
+    // storage size should be 1.
+    expect(Object.keys(set._storage).length === 1);
+  });
+
 });
