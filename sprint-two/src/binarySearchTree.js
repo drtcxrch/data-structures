@@ -65,6 +65,18 @@ binaryTreeMethods.depthFirstLog = function (cb) {
 
 };
 
+binaryTreeMethods.breadthFirstLog = function (cb) {
+  var queue = [this];
+
+  while (queue.length > 0) {
+    var tree = queue.shift();
+    if (tree) {
+      queue.push(tree.left, tree.right);
+      cb(tree.value);
+    }
+  }
+};
+
 
 
 /*

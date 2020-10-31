@@ -12,8 +12,24 @@
 </body>
 
 <script>
-    var queue = Queue();
-    Stack();
+    var queues = [];
+    var stacks = [];
+    for (var i = 0; i < 1000000; i++) {
+      var newQueue = Queue();
+      queues.push(newQueue);
+      var newStack = Stack();
+      stacks.push(newStack);
+    }
+
+    for (var i = 0; i < 1000000; i++) {
+      var randomIndex = (Math.floor(Math.random() * 1000));
+      queues[randomIndex].enqueue((Math.floor(Math.random() * 1000)));
+      stacks[randomIndex].push((Math.floor(Math.random() * 1000)));
+    }
+
+    console.log(queues.length, queues.reduce(function(accumulator, queue) {
+      return queue.size() + accumulator;
+    }, 0));
 </script>
 
 </html>
